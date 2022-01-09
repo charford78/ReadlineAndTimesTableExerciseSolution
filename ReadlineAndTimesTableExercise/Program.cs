@@ -10,15 +10,18 @@ while(input != "esc")
     input = Console.ReadLine();
     Console.WriteLine();
     string comma = "";
-    if(input != "esc")
+    if(Int32.TryParse(input, out int num))
     {
         foreach (int f in factors)
         {
-            int num = Convert.ToInt32(input);
             Console.Write(comma + (f * num));
             comma = ", ";
         };
+    } else if(input != "esc")
+    {
+        Console.WriteLine("You must type a number or 'esc'!  Try again.");
     }
+
     Console.WriteLine();
     Console.WriteLine();
 }
